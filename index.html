@@ -30,160 +30,87 @@
   </script>
 </head>
 <body class="min-h-screen">
-  <div id="login-popup" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50">
-    <div class="bg-white p-6 rounded shadow-md w-full max-w-md">
-      <h2 class="text-xl font-bold text-center text-emerald-700 mb-4">Selamat Datang!</h2>
-      <p class="text-center mb-4">Sila masukkan Username dan Password untuk mula.</p>
-      <input id="username" type="text" placeholder="Username" class="w-full border border-gray-300 rounded px-4 py-2 mb-3" />
-      <input id="password" type="password" placeholder="Password" class="w-full border border-gray-300 rounded px-4 py-2 mb-4" />
-      <button onclick="checkLogin()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 w-full rounded">Masuk</button>
-      <p id="login-error" class="text-red-500 text-sm text-center mt-2 hidden">Maklumat tidak sah atau bayaran belum disahkan.</p>
+  <!-- Kategori Belajar -->
+  <section id="belajar" class="content-section hidden">
+    <button onclick="navigateTo('welcome')" class="text-sm text-amber-700 mb-4 flex items-center">
+      <i class="ph ph-arrow-left mr-2"></i>Kembali
+    </button>
+    <h2 class="text-xl font-bold text-amber-700 mb-4">Bahan Pembelajaran Mengikut Kategori</h2>
+    <div class="space-y-8">
+      <!-- Setiap kategori -->
+      <div>
+        <h3 class="font-semibold text-amber-600 mb-2">Kata Sapaan & Perkenalan Diri</h3>
+        <div class="flex space-x-4">
+          <button class="tab-btn" onclick="showTab('sapaan-video')">Video</button>
+          <button class="tab-btn" onclick="showTab('sapaan-nota')">Nota</button>
+        </div>
+        <div id="sapaan-video" class="hidden mt-2">
+          <iframe width="100%" height="315" src="https://www.youtube.com/embed/samplevideo1" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div id="sapaan-nota" class="hidden mt-2">
+          <iframe width="100%" height="500" src="https://www.canva.com/design/sample1/embed" frameborder="0"></iframe>
+        </div>
+      </div>
+      <div>
+        <h3 class="font-semibold text-amber-600 mb-2">Perkataan Bertema</h3>
+        <div class="flex space-x-4">
+          <button class="tab-btn" onclick="showTab('bertema-video')">Video</button>
+          <button class="tab-btn" onclick="showTab('bertema-nota')">Nota</button>
+        </div>
+        <div id="bertema-video" class="hidden mt-2">
+          <iframe width="100%" height="315" src="https://www.youtube.com/embed/samplevideo2" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div id="bertema-nota" class="hidden mt-2">
+          <iframe width="100%" height="500" src="https://www.canva.com/design/sample2/embed" frameborder="0"></iframe>
+        </div>
+      </div>
+      <div>
+        <h3 class="font-semibold text-amber-600 mb-2">Nombor & Jam</h3>
+        <div class="flex space-x-4">
+          <button class="tab-btn" onclick="showTab('nombor-video')">Video</button>
+          <button class="tab-btn" onclick="showTab('nombor-nota')">Nota</button>
+        </div>
+        <div id="nombor-video" class="hidden mt-2">
+          <iframe width="100%" height="315" src="https://www.youtube.com/embed/samplevideo3" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div id="nombor-nota" class="hidden mt-2">
+          <iframe width="100%" height="500" src="https://www.canva.com/design/sample3/embed" frameborder="0"></iframe>
+        </div>
+      </div>
+      <div>
+        <h3 class="font-semibold text-amber-600 mb-2">Kata Ganti Nama & Kata Kerja</h3>
+        <div class="flex space-x-4">
+          <button class="tab-btn" onclick="showTab('ganti-video')">Video</button>
+          <button class="tab-btn" onclick="showTab('ganti-nota')">Nota</button>
+        </div>
+        <div id="ganti-video" class="hidden mt-2">
+          <iframe width="100%" height="315" src="https://www.youtube.com/embed/samplevideo4" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div id="ganti-nota" class="hidden mt-2">
+          <iframe width="100%" height="500" src="https://www.canva.com/design/sample4/embed" frameborder="0"></iframe>
+        </div>
+      </div>
+      <div>
+        <h3 class="font-semibold text-amber-600 mb-2">Kata Sendi & Kata Arah</h3>
+        <div class="flex space-x-4">
+          <button class="tab-btn" onclick="showTab('sendi-video')">Video</button>
+          <button class="tab-btn" onclick="showTab('sendi-nota')">Nota</button>
+        </div>
+        <div id="sendi-video" class="hidden mt-2">
+          <iframe width="100%" height="315" src="https://www.youtube.com/embed/samplevideo5" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div id="sendi-nota" class="hidden mt-2">
+          <iframe width="100%" height="500" src="https://www.canva.com/design/sample5/embed" frameborder="0"></iframe>
+        </div>
+      </div>
     </div>
-  </div>
-
-  <header class="bg-emerald-700 text-white p-4 text-xl font-bold text-center relative">
-    Platform Pembelajaran Bahasa Arab
-    <div id="logout-button" class="hidden absolute top-4 right-4">
-      <button onclick="logout()" class="bg-red-100 hover:bg-red-200 text-red-700 text-sm font-bold py-1 px-3 rounded shadow border border-red-300">
-        <i class="ph ph-sign-out text-lg mr-1"></i>Log Keluar
-      </button>
-    </div>
-  </header>
-
-  <main class="p-6">
-    <section id="welcome" class="content-section">
-      <h2 class="text-2xl font-bold text-emerald-700 mb-4 text-center">Selamat datang ke platform ini</h2>
-      <p class="text-center text-gray-700 mb-6">Nama: <span id="display-username" class="font-semibold"></span></p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
-        <button class="menu-btn bg-emerald-100 hover:bg-emerald-200 p-6 text-center rounded-lg shadow border border-emerald-300" onclick="navigateTo('belajar')">
-          <div class="flex flex-col items-center text-emerald-700">
-            <i class="ph ph-book-open text-3xl mb-2"></i>
-            <span class="text-xl font-bold">Belajar</span>
-          </div>
-        </button>
-        <button class="menu-btn bg-amber-100 hover:bg-amber-200 p-6 text-center rounded-lg shadow border border-amber-300" onclick="navigateTo('permainan')">
-          <div class="flex flex-col items-center text-amber-700">
-            <i class="ph ph-game-controller text-3xl mb-2"></i>
-            <span class="text-xl font-bold">Permainan</span>
-          </div>
-        </button>
-        <button class="menu-btn bg-blue-100 hover:bg-blue-200 p-6 text-center rounded-lg shadow border border-blue-300" onclick="navigateTo('panduan')">
-          <div class="flex flex-col items-center text-blue-700">
-            <i class="ph ph-bookmarks text-3xl mb-2"></i>
-            <span class="text-xl font-bold">Panduan</span>
-          </div>
-        </button>
-        <button class="menu-btn bg-purple-100 hover:bg-purple-200 p-6 text-center rounded-lg shadow border border-purple-300" onclick="navigateTo('sokongan')">
-          <div class="flex flex-col items-center text-purple-700">
-            <i class="ph ph-lifebuoy text-3xl mb-2"></i>
-            <span class="text-xl font-bold">Sokongan</span>
-          </div>
-        </button>
-      </div>
-    </section>
-
-    <section id="belajar" class="content-section hidden">
-      <button onclick="navigateTo('welcome')" class="text-sm text-emerald-700 mb-4 flex items-center"><i class="ph ph-arrow-left mr-2"></i>Kembali</button>
-      <h2 class="text-xl font-bold text-emerald-700 mb-4">Kategori Belajar</h2>
-      <div id="kategori-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <button onclick="showTopik('kata-sapaan')" class="bg-white border rounded p-4 shadow hover:bg-emerald-50">Kata Sapaan & Perkenalan Diri</button>
-        <button onclick="showTopik('perkataan-bertema')" class="bg-white border rounded p-4 shadow hover:bg-emerald-50">Perkataan Bertema</button>
-        <button onclick="showTopik('nombor-jam')" class="bg-white border rounded p-4 shadow hover:bg-emerald-50">Nombor & Jam</button>
-        <button onclick="showTopik('kata-ganti')" class="bg-white border rounded p-4 shadow hover:bg-emerald-50">Kata Ganti Nama & Kata Kerja</button>
-        <button onclick="showTopik('kata-sendi')" class="bg-white border rounded p-4 shadow hover:bg-emerald-50">Kata Sendi & Kata Arah</button>
-      </div>
-      <div id="topik-kandungan" class="mt-6 hidden">
-        <div class="flex space-x-4 mb-4">
-          <button id="btn-video" onclick="switchTab('video')" class="tab-btn px-4 py-2 border-b-2">Video</button>
-          <button id="btn-nota" onclick="switchTab('nota')" class="tab-btn px-4 py-2 border-b-2">Nota</button>
-        </div>
-        <div id="video" class="tab-content hidden">
-          <iframe class="w-full h-64" src="https://www.youtube.com/embed/" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div id="nota" class="tab-content hidden">
-          <iframe class="w-full h-64" src="https://www.canva.com/" frameborder="0"></iframe>
-        </div>
-      </div>
-    </section>
-
-    <section id="permainan" class="content-section hidden">
-      <button onclick="navigateTo('welcome')" class="text-sm text-amber-700 mb-4 flex items-center"><i class="ph ph-arrow-left mr-2"></i>Kembali</button>
-      <h2 class="text-xl font-bold text-amber-700 mb-4">Permainan Mengikut Kategori</h2>
-      <ul class="space-y-4">
-        <li>Kata Sapaan & Perkenalan Diri: Aneka pilihan, Padankan antara set, Gariskan jawapan yang betul, Isi tempat kosong, Tanda "rait" atau "pangkah", Bonus</li>
-        <li>Perkataan Bertema: Aneka pilihan, Padankan antara set, Gariskan jawapan yang betul, Isi tempat kosong, Tanda "rait" atau "pangkah", Bonus</li>
-        <li>Nombor & Jam: Aneka pilihan, Padankan antara set, Gariskan jawapan yang betul, Isi tempat kosong, Tanda "rait" atau "pangkah", Bonus</li>
-        <li>Kata Ganti Nama & Kata Kerja: Aneka pilihan, Padankan antara set, Gariskan jawapan yang betul, Isi tempat kosong, Tanda "rait" atau "pangkah", Bonus</li>
-        <li>Kata Sendi & Kata Arah: Aneka pilihan, Padankan antara set, Gariskan jawapan yang betul, Isi tempat kosong, Tanda "rait" atau "pangkah", Bonus</li>
-      </ul>
-    </section>
-  </main>
-
+  </section>
   <script>
-    let currentUsername = '';
-
-    async function checkLogin() {
-      const username = document.getElementById('username').value.trim();
-      const password = document.getElementById('password').value;
-
-      if (!username || !password) {
-        document.getElementById('login-error').textContent = 'Sila masukkan kedua-dua medan.';
-        document.getElementById('login-error').classList.remove('hidden');
-        return;
-      }
-
-      try {
-        const response = await fetch('senarai_pengguna.csv');
-        const csvText = await response.text();
-        const rows = csvText.trim().split('\n').slice(1);
-        const users = rows.map(row => {
-          const [nama, uname, pw, status] = row.split(',');
-          return { nama, username: uname, password: pw, status: status.trim().toLowerCase() === 'true' };
-        });
-
-        const user = users.find(u => u.username === username && u.password === password);
-
-        if (user && user.status) {
-          currentUsername = user.nama;
-          document.getElementById('login-popup').style.display = 'none';
-          document.getElementById('display-username').textContent = currentUsername;
-          document.getElementById('logout-button').classList.remove('hidden');
-        } else {
-          document.getElementById('login-error').textContent = 'Maklumat tidak sah atau bayaran belum disahkan.';
-          document.getElementById('login-error').classList.remove('hidden');
-        }
-      } catch (err) {
-        console.error('Ralat semasa memuat CSV:', err);
-        document.getElementById('login-error').textContent = 'Tidak dapat memuat data pengguna.';
-        document.getElementById('login-error').classList.remove('hidden');
-      }
-    }
-
-    function logout() {
-      currentUsername = '';
-      document.getElementById('username').value = '';
-      document.getElementById('password').value = '';
-      document.getElementById('display-username').textContent = '';
-      document.getElementById('logout-button').classList.add('hidden');
-      document.getElementById('login-popup').style.display = 'flex';
-    }
-
-    function navigateTo(sectionId) {
-      document.querySelectorAll('.content-section').forEach(el => el.classList.add('hidden'));
-      document.getElementById(sectionId).classList.remove('hidden');
-    }
-
-    function showTopik(topikId) {
-      document.getElementById('topik-kandungan').classList.remove('hidden');
-      document.getElementById('kategori-list').classList.add('hidden');
-      switchTab('video');
-    }
-
-    function switchTab(tabId) {
-      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    function showTab(tabId) {
+      document.querySelectorAll('[id$="-video"], [id$="-nota"]').forEach(el => el.classList.add('hidden'));
       document.getElementById(tabId).classList.remove('hidden');
-      document.getElementById('btn-' + tabId).classList.add('active');
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
     }
   </script>
 </body>
