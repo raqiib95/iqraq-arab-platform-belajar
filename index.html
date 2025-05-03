@@ -44,8 +44,8 @@
   <header class="bg-emerald-700 text-white p-4 text-xl font-bold text-center relative">
     Platform Pembelajaran Bahasa Arab
     <div id="logout-button" class="hidden absolute top-4 right-4">
-      <button onclick="logout()" class="bg-red-100 hover:bg-red-200 text-red-700 font-bold py-2 px-4 rounded shadow border border-red-300">
-        <i class="ph ph-sign-out text-xl mr-2"></i>Log Keluar
+      <button onclick="logout()" class="bg-red-100 hover:bg-red-200 text-red-700 text-sm font-bold py-1 px-3 rounded shadow border border-red-300">
+        <i class="ph ph-sign-out text-lg mr-1"></i>Log Keluar
       </button>
     </div>
   </header>
@@ -79,6 +79,30 @@
             <span class="text-xl font-bold">Sokongan</span>
           </div>
         </button>
+      </div>
+    </section>
+
+    <section id="belajar" class="content-section hidden">
+      <button onclick="navigateTo('welcome')" class="text-sm text-emerald-700 mb-4 flex items-center"><i class="ph ph-arrow-left mr-2"></i>Kembali</button>
+      <h2 class="text-xl font-bold text-emerald-700 mb-4">Kategori Belajar</h2>
+      <div id="kategori-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <button onclick="showTopik('nombor-jam')" class="bg-white border rounded p-4 shadow hover:bg-emerald-50">Nombor & Jam</button>
+        <button onclick="showTopik('kata-ganti')" class="bg-white border rounded p-4 shadow hover:bg-emerald-50">Kata Ganti Nama & Kata Kerja</button>
+        <button onclick="showTopik('kata-sendi')" class="bg-white border rounded p-4 shadow hover:bg-emerald-50">Kata Sendi & Kata Arah</button>
+        <button onclick="showTopik('kata-sapaan')" class="bg-white border rounded p-4 shadow hover:bg-emerald-50">Kata Sapaan & Perkenalan Diri</button>
+        <button onclick="showTopik('jenis-perkataan')" class="bg-white border rounded p-4 shadow hover:bg-emerald-50">Jenis Perkataan</button>
+      </div>
+      <div id="topik-kandungan" class="mt-6 hidden">
+        <div class="flex space-x-4 mb-4">
+          <button id="btn-video" onclick="switchTab('video')" class="tab-btn px-4 py-2 border-b-2">Video</button>
+          <button id="btn-nota" onclick="switchTab('nota')" class="tab-btn px-4 py-2 border-b-2">Nota</button>
+        </div>
+        <div id="video" class="tab-content hidden">
+          <iframe class="w-full h-64" src="https://www.youtube.com/embed/" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div id="nota" class="tab-content hidden">
+          <iframe class="w-full h-64" src="https://www.canva.com/" frameborder="0"></iframe>
+        </div>
       </div>
     </section>
   </main>
