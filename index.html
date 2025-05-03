@@ -41,8 +41,13 @@
     </div>
   </div>
 
-  <header class="bg-emerald-700 text-white p-4 text-xl font-bold text-center">
+  <header class="bg-emerald-700 text-white p-4 text-xl font-bold text-center relative">
     Platform Pembelajaran Bahasa Arab
+    <div id="logout-button" class="hidden absolute top-4 right-4">
+      <button onclick="logout()" class="bg-red-100 hover:bg-red-200 text-red-700 font-bold py-2 px-4 rounded shadow border border-red-300">
+        <i class="ph ph-sign-out text-xl mr-2"></i>Log Keluar
+      </button>
+    </div>
   </header>
 
   <main class="p-6">
@@ -73,9 +78,6 @@
             <i class="ph ph-lifebuoy text-3xl mb-2"></i>
             <span class="text-xl font-bold">Sokongan</span>
           </div>
-        </button>
-        <button onclick="logout()" class="col-span-full bg-red-100 hover:bg-red-200 text-red-700 font-bold py-2 px-4 rounded shadow border border-red-300 text-center">
-          <i class="ph ph-sign-out text-xl mr-2"></i>Log Keluar
         </button>
       </div>
     </section>
@@ -109,6 +111,7 @@
           currentUsername = user.nama;
           document.getElementById('login-popup').style.display = 'none';
           document.getElementById('display-username').textContent = currentUsername;
+          document.getElementById('logout-button').classList.remove('hidden');
         } else {
           document.getElementById('login-error').textContent = 'Maklumat tidak sah atau bayaran belum disahkan.';
           document.getElementById('login-error').classList.remove('hidden');
@@ -125,6 +128,7 @@
       document.getElementById('username').value = '';
       document.getElementById('password').value = '';
       document.getElementById('display-username').textContent = '';
+      document.getElementById('logout-button').classList.add('hidden');
       document.getElementById('login-popup').style.display = 'flex';
     }
 
