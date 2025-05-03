@@ -30,116 +30,188 @@
   </script>
 </head>
 <body class="min-h-screen">
+  <!-- Header -->
+  <header class="bg-emerald-600 text-white py-4 px-6 flex items-center justify-between">
+    <div class="flex items-center space-x-3">
+      <img src="logo.png" alt="Logo" class="h-10 w-10" />
+      <h1 class="text-xl font-bold">Platform Pembelajaran - Bahasa Arab UPKK</h1>
+    </div>
+  </header>
+
+  <!-- Popup Log Masuk -->
+  <div id="login-popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-80">
+      <h2 class="text-lg font-bold text-center text-emerald-700 mb-4">Selamat Datang</h2>
+      <p class="text-sm text-gray-700 mb-2">Sila masukkan nama pengguna dan kata laluan untuk teruskan.</p>
+      <input id="input-nama" type="text" placeholder="Nama Pengguna" class="w-full px-3 py-2 border border-gray-300 rounded mb-2">
+      <input id="input-password" type="password" placeholder="Kata Laluan" class="w-full px-3 py-2 border border-gray-300 rounded mb-4">
+      <button onclick="validateLogin()" class="w-full bg-emerald-700 text-white py-2 rounded hover:bg-emerald-800">Log Masuk</button>
+      <p id="login-error" class="text-red-600 text-sm mt-2 hidden">Nama pengguna atau kata laluan salah atau status bayaran tidak sah.</p>
+    </div>
+  </div>
+
+  <!-- Menu Utama -->
+  <div id="menu-utama" class="hidden p-6">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-xl font-bold text-emerald-700">Menu Utama</h2>
+      <button onclick="logout()" id="logout-btn" class="text-xs text-red-600 px-2 py-1 border border-red-600 rounded hidden">Log Keluar</button>
+    </div>
+    <div class="grid grid-cols-2 gap-6">
+      <button onclick="navigateTo('belajar')" class="bg-white border rounded-lg shadow p-4 flex flex-col items-center hover:bg-emerald-50">
+        <i class="ph ph-book-open text-2xl text-emerald-700"></i>
+        <span class="mt-2 font-medium">Belajar</span>
+      </button>
+      <button onclick="navigateTo('permainan')" class="bg-white border rounded-lg shadow p-4 flex flex-col items-center hover:bg-emerald-50">
+        <i class="ph ph-game-controller text-2xl text-emerald-700"></i>
+        <span class="mt-2 font-medium">Permainan</span>
+      </button>
+    </div>
+  </div>
+
   <!-- Kategori Belajar -->
-  <section id="belajar" class="content-section hidden">
-    <button onclick="navigateTo('welcome')" class="text-sm text-amber-700 mb-4 flex items-center">
-      <i class="ph ph-arrow-left mr-2"></i>Kembali
-    </button>
-    <h2 class="text-xl font-bold text-amber-700 mb-4">Bahan Pembelajaran Mengikut Kategori</h2>
-    <div class="space-y-8">
-      <!-- Kategori disusun semula -->
-      <!-- Setiap kategori mengandungi tab Video dan Nota -->
-      
-    <div>
-      <h3 class="font-semibold text-amber-600 mb-2">Kata Sapaan & Perkenalan Diri</h3>
-      <div class="flex space-x-4 mb-2">
-        <button class="tab-btn" onclick="showTab('kata-sapaan-perkenalan-diri-video', event)">Video</button>
-        <button class="tab-btn" onclick="showTab('kata-sapaan-perkenalan-diri-nota', event)">Nota</button>
-      </div>
-      <div id="kata-sapaan-perkenalan-diri-video" class="hidden"><iframe width="100%" height="300" src="https://www.youtube.com/embed/VIDEO_ID_0" allowfullscreen></iframe></div>
-      <div id="kata-sapaan-perkenalan-diri-nota" class="hidden"><iframe width="100%" height="300" src="https://www.canva.com/embed/NOTA_ID_0" allowfullscreen></iframe></div>
-    </div>
-    <div>
-      <h3 class="font-semibold text-amber-600 mb-2">Perkataan Bertema</h3>
-      <div class="flex space-x-4 mb-2">
-        <button class="tab-btn" onclick="showTab('perkataan-bertema-video', event)">Video</button>
-        <button class="tab-btn" onclick="showTab('perkataan-bertema-nota', event)">Nota</button>
-      </div>
-      <div id="perkataan-bertema-video" class="hidden"><iframe width="100%" height="300" src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen></iframe></div>
-      <div id="perkataan-bertema-nota" class="hidden"><iframe width="100%" height="300" src="https://www.canva.com/embed/NOTA_ID_1" allowfullscreen></iframe></div>
-    </div>
-    <div>
-      <h3 class="font-semibold text-amber-600 mb-2">Nombor & Jam</h3>
-      <div class="flex space-x-4 mb-2">
-        <button class="tab-btn" onclick="showTab('nombor-jam-video', event)">Video</button>
-        <button class="tab-btn" onclick="showTab('nombor-jam-nota', event)">Nota</button>
-      </div>
-      <div id="nombor-jam-video" class="hidden"><iframe width="100%" height="300" src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen></iframe></div>
-      <div id="nombor-jam-nota" class="hidden"><iframe width="100%" height="300" src="https://www.canva.com/embed/NOTA_ID_2" allowfullscreen></iframe></div>
-    </div>
-    <div>
-      <h3 class="font-semibold text-amber-600 mb-2">Kata Ganti Nama & Kata Kerja</h3>
-      <div class="flex space-x-4 mb-2">
-        <button class="tab-btn" onclick="showTab('kata-ganti-nama-kata-kerja-video', event)">Video</button>
-        <button class="tab-btn" onclick="showTab('kata-ganti-nama-kata-kerja-nota', event)">Nota</button>
-      </div>
-      <div id="kata-ganti-nama-kata-kerja-video" class="hidden"><iframe width="100%" height="300" src="https://www.youtube.com/embed/VIDEO_ID_3" allowfullscreen></iframe></div>
-      <div id="kata-ganti-nama-kata-kerja-nota" class="hidden"><iframe width="100%" height="300" src="https://www.canva.com/embed/NOTA_ID_3" allowfullscreen></iframe></div>
-    </div>
-    <div>
-      <h3 class="font-semibold text-amber-600 mb-2">Kata Sendi & Kata Arah</h3>
-      <div class="flex space-x-4 mb-2">
-        <button class="tab-btn" onclick="showTab('kata-sendi-kata-arah-video', event)">Video</button>
-        <button class="tab-btn" onclick="showTab('kata-sendi-kata-arah-nota', event)">Nota</button>
-      </div>
-      <div id="kata-sendi-kata-arah-video" class="hidden"><iframe width="100%" height="300" src="https://www.youtube.com/embed/VIDEO_ID_4" allowfullscreen></iframe></div>
-      <div id="kata-sendi-kata-arah-nota" class="hidden"><iframe width="100%" height="300" src="https://www.canva.com/embed/NOTA_ID_4" allowfullscreen></iframe></div>
-    </div>
-    </div>
+  <section id="belajar" class="content-section hidden px-6 pb-8">
+    <button onclick="navigateTo('menu-utama')" class="text-sm text-emerald-700 mb-4 flex items-center">
+      <i class="ph ph-arrow-left mr-2"></i>Kembali</button>
+    <h2 class="text-xl font-bold text-emerald-700 mb-4">Bahan Pembelajaran Mengikut Kategori</h2>
+    <div class="grid md:grid-cols-2 gap-6" id="kategori-belajar"></div>
   </section>
 
   <!-- Kategori Permainan -->
-  <section id="permainan" class="content-section hidden">
-    <button onclick="navigateTo('welcome')" class="text-sm text-amber-700 mb-4 flex items-center">
-      <i class="ph ph-arrow-left mr-2"></i>Kembali
-    </button>
-    <h2 class="text-xl font-bold text-amber-700 mb-4">Permainan Mengikut Kategori</h2>
-    <div class="space-y-8">
-      
-    <div>
-      <h3 class="font-semibold text-amber-600 mb-2">Kata Sapaan & Perkenalan Diri</h3>
-      <ul class="list-disc list-inside ml-4 space-y-1">
-        <li><a href="games/kata-sapaan-perkenalan-diri-game1.html" target="_blank" class="text-blue-600 underline">Aneka pilihan</a></li><li><a href="games/kata-sapaan-perkenalan-diri-game2.html" target="_blank" class="text-blue-600 underline">Padankan antara set</a></li><li><a href="games/kata-sapaan-perkenalan-diri-game3.html" target="_blank" class="text-blue-600 underline">Gariskan jawapan yang betul</a></li><li><a href="games/kata-sapaan-perkenalan-diri-game4.html" target="_blank" class="text-blue-600 underline">Isi tempat kosong dengan jawapan disediakan</a></li><li><a href="games/kata-sapaan-perkenalan-diri-game5.html" target="_blank" class="text-blue-600 underline">Tanda "rait" atau "pangkah" bagi kenyataan berikut</a></li><li><a href="games/kata-sapaan-perkenalan-diri-game6.html" target="_blank" class="text-blue-600 underline">Bonus</a></li>
-      </ul>
-    </div>
-    <div>
-      <h3 class="font-semibold text-amber-600 mb-2">Perkataan Bertema</h3>
-      <ul class="list-disc list-inside ml-4 space-y-1">
-        <li><a href="games/perkataan-bertema-game1.html" target="_blank" class="text-blue-600 underline">Aneka pilihan</a></li><li><a href="games/perkataan-bertema-game2.html" target="_blank" class="text-blue-600 underline">Padankan antara set</a></li><li><a href="games/perkataan-bertema-game3.html" target="_blank" class="text-blue-600 underline">Gariskan jawapan yang betul</a></li><li><a href="games/perkataan-bertema-game4.html" target="_blank" class="text-blue-600 underline">Isi tempat kosong dengan jawapan disediakan</a></li><li><a href="games/perkataan-bertema-game5.html" target="_blank" class="text-blue-600 underline">Tanda "rait" atau "pangkah" bagi kenyataan berikut</a></li><li><a href="games/perkataan-bertema-game6.html" target="_blank" class="text-blue-600 underline">Bonus</a></li>
-      </ul>
-    </div>
-    <div>
-      <h3 class="font-semibold text-amber-600 mb-2">Nombor & Jam</h3>
-      <ul class="list-disc list-inside ml-4 space-y-1">
-        <li><a href="games/nombor-jam-game1.html" target="_blank" class="text-blue-600 underline">Aneka pilihan</a></li><li><a href="games/nombor-jam-game2.html" target="_blank" class="text-blue-600 underline">Padankan antara set</a></li><li><a href="games/nombor-jam-game3.html" target="_blank" class="text-blue-600 underline">Gariskan jawapan yang betul</a></li><li><a href="games/nombor-jam-game4.html" target="_blank" class="text-blue-600 underline">Isi tempat kosong dengan jawapan disediakan</a></li><li><a href="games/nombor-jam-game5.html" target="_blank" class="text-blue-600 underline">Tanda "rait" atau "pangkah" bagi kenyataan berikut</a></li><li><a href="games/nombor-jam-game6.html" target="_blank" class="text-blue-600 underline">Bonus</a></li>
-      </ul>
-    </div>
-    <div>
-      <h3 class="font-semibold text-amber-600 mb-2">Kata Ganti Nama & Kata Kerja</h3>
-      <ul class="list-disc list-inside ml-4 space-y-1">
-        <li><a href="games/kata-ganti-nama-kata-kerja-game1.html" target="_blank" class="text-blue-600 underline">Aneka pilihan</a></li><li><a href="games/kata-ganti-nama-kata-kerja-game2.html" target="_blank" class="text-blue-600 underline">Padankan antara set</a></li><li><a href="games/kata-ganti-nama-kata-kerja-game3.html" target="_blank" class="text-blue-600 underline">Gariskan jawapan yang betul</a></li><li><a href="games/kata-ganti-nama-kata-kerja-game4.html" target="_blank" class="text-blue-600 underline">Isi tempat kosong dengan jawapan disediakan</a></li><li><a href="games/kata-ganti-nama-kata-kerja-game5.html" target="_blank" class="text-blue-600 underline">Tanda "rait" atau "pangkah" bagi kenyataan berikut</a></li><li><a href="games/kata-ganti-nama-kata-kerja-game6.html" target="_blank" class="text-blue-600 underline">Bonus</a></li>
-      </ul>
-    </div>
-    <div>
-      <h3 class="font-semibold text-amber-600 mb-2">Kata Sendi & Kata Arah</h3>
-      <ul class="list-disc list-inside ml-4 space-y-1">
-        <li><a href="games/kata-sendi-kata-arah-game1.html" target="_blank" class="text-blue-600 underline">Aneka pilihan</a></li><li><a href="games/kata-sendi-kata-arah-game2.html" target="_blank" class="text-blue-600 underline">Padankan antara set</a></li><li><a href="games/kata-sendi-kata-arah-game3.html" target="_blank" class="text-blue-600 underline">Gariskan jawapan yang betul</a></li><li><a href="games/kata-sendi-kata-arah-game4.html" target="_blank" class="text-blue-600 underline">Isi tempat kosong dengan jawapan disediakan</a></li><li><a href="games/kata-sendi-kata-arah-game5.html" target="_blank" class="text-blue-600 underline">Tanda "rait" atau "pangkah" bagi kenyataan berikut</a></li><li><a href="games/kata-sendi-kata-arah-game6.html" target="_blank" class="text-blue-600 underline">Bonus</a></li>
-      </ul>
-    </div>
-    </div>
+  <section id="permainan" class="content-section hidden px-6 pb-8">
+    <button onclick="navigateTo('menu-utama')" class="text-sm text-emerald-700 mb-4 flex items-center">
+      <i class="ph ph-arrow-left mr-2"></i>Kembali</button>
+    <h2 class="text-xl font-bold text-emerald-700 mb-4">Permainan Mengikut Kategori</h2>
+    <div class="grid md:grid-cols-2 gap-6" id="kategori-permainan"></div>
   </section>
 
+  <!-- Footer -->
+  <footer class="bg-emerald-600 text-white text-center py-4 mt-6">
+    © 2025 Abdul Raqiib bin Basiran & Iqraq Education
+  </footer>
+
   <script>
-    function showTab(tabId, event) {
-      document.querySelectorAll('[id$="-video"], [id$="-nota"]').forEach(el => el.classList.add('hidden'));
-      document.getElementById(tabId).classList.remove('hidden');
-      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
+    let penggunaSah = null;
+
+function navigateTo(sectionId) {
+  document.querySelectorAll('.content-section').forEach(section => section.classList.add('hidden'));
+  document.getElementById('menu-utama').classList.add('hidden');
+  document.getElementById(sectionId).classList.remove('hidden');
+}
+
+function logout() {
+  penggunaSah = null;
+  document.getElementById('logout-btn').classList.add('hidden');
+  document.getElementById('menu-utama').classList.add('hidden');
+  document.getElementById('login-popup').classList.remove('hidden');
+  document.getElementById('input-nama').value = '';
+  document.getElementById('input-password').value = '';
+}
+
+// Fungsi untuk sahkan log masuk
+async function validateLogin() {
+  const nama = document.getElementById('input-nama').value.trim().toLowerCase();
+  const password = document.getElementById('input-password').value.trim();
+
+  const response = await fetch('senarai_pengguna.csv');
+  const data = await response.text();
+  const baris = data.split('\n').slice(1);
+
+  let ditemui = false;
+
+  for (let line of baris) {
+    const [namaPenuh, username, kataLaluan, statusBayaran] = line.split(',').map(item => item?.trim()?.toLowerCase());
+    if (username === nama && kataLaluan === password && statusBayaran === 'true') {
+      penggunaSah = namaPenuh;
+      ditemui = true;
+      break;
     }
-    function navigateTo(sectionId) {
-      document.querySelectorAll('.content-section').forEach(sec => sec.classList.add('hidden'));
-      document.getElementById(sectionId).classList.remove('hidden');
-    }
+  }
+
+  if (ditemui) {
+    document.getElementById('login-popup').classList.add('hidden');
+    document.getElementById('menu-utama').classList.remove('hidden');
+    document.getElementById('logout-btn').classList.remove('hidden');
+  } else {
+    document.getElementById('login-error').classList.remove('hidden');
+  }
+}
+
+// Senarai kategori belajar
+const kategoriBelajar = [
+  { id: 'sapaan', tajuk: 'Kata Sapaan & Perkenalan Diri', video: 'https://www.youtube.com/embed/VIDEO_ID1', nota: 'https://www.canva.com/design/NOTA_ID1' },
+  { id: 'bertema', tajuk: 'Perkataan Bertema', video: 'https://www.youtube.com/embed/VIDEO_ID2', nota: 'https://www.canva.com/design/NOTA_ID2' },
+  { id: 'nomborjam', tajuk: 'Nombor & Jam', video: 'https://www.youtube.com/embed/VIDEO_ID3', nota: 'https://www.canva.com/design/NOTA_ID3' },
+  { id: 'gantikerja', tajuk: 'Kata Ganti Nama & Kata Kerja', video: 'https://www.youtube.com/embed/VIDEO_ID4', nota: 'https://www.canva.com/design/NOTA_ID4' },
+  { id: 'sendiarah', tajuk: 'Kata Sendi & Kata Arah', video: 'https://www.youtube.com/embed/VIDEO_ID5', nota: 'https://www.canva.com/design/NOTA_ID5' }
+];
+
+// Senarai jenis permainan
+const jenisPermainan = [
+  'Aneka Pilihan',
+  'Padankan Antara Set',
+  'Gariskan Jawapan Yang Betul',
+  'Isi Tempat Kosong',
+  'Tanda Rait atau Pangkah',
+  'Bonus'
+];
+
+// Paparkan kad belajar
+function paparKadBelajar() {
+  const bekas = document.getElementById('kategori-belajar');
+  bekas.innerHTML = '';
+  kategoriBelajar.forEach(kat => {
+    const div = document.createElement('div');
+    div.className = 'bg-white p-4 rounded shadow';
+    div.innerHTML = `
+      <h3 class="text-lg font-semibold text-emerald-700 mb-2">${kat.tajuk}</h3>
+      <div class="flex space-x-2 mb-2">
+        <button onclick="paparTab('${kat.id}', 'video')" id="${kat.id}-btn-video" class="tab-btn px-3 py-1 border rounded text-sm bg-emerald-100">Video</button>
+        <button onclick="paparTab('${kat.id}', 'nota')" id="${kat.id}-btn-nota" class="tab-btn px-3 py-1 border rounded text-sm">Nota</button>
+      </div>
+      <div id="${kat.id}-video" class="tab-content active">
+        <iframe class="w-full aspect-video" src="${kat.video}" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div id="${kat.id}-nota" class="tab-content hidden">
+        <iframe class="w-full aspect-video" src="${kat.nota}" frameborder="0" allowfullscreen></iframe>
+      </div>
+    `;
+    bekas.appendChild(div);
+  });
+}
+
+// Fungsi tukar tab video/nota
+function paparTab(id, jenis) {
+  document.getElementById(`${id}-video`).classList.add('hidden');
+  document.getElementById(`${id}-nota`).classList.add('hidden');
+  document.getElementById(`${id}-btn-video`).classList.remove('active');
+  document.getElementById(`${id}-btn-nota`).classList.remove('active');
+
+  document.getElementById(`${id}-${jenis}`).classList.remove('hidden');
+  document.getElementById(`${id}-btn-${jenis}`).classList.add('active');
+}
+
+// Paparkan kad permainan
+function paparKadPermainan() {
+  const bekas = document.getElementById('kategori-permainan');
+  bekas.innerHTML = '';
+  kategoriBelajar.forEach(kat => {
+    const div = document.createElement('div');
+    div.className = 'bg-white p-4 rounded shadow';
+    let senaraiPermainan = '';
+    jenisPermainan.forEach(p => {
+      const fileName = `${kat.id}-${p.toLowerCase().replace(/ /g, '-')}.html`;
+      senaraiPermainan += `<a href="${fileName}" target="_blank" class="block text-sm text-emerald-700 underline hover:text-emerald-900 mb-1">${p}</a>`;
+    });
+    div.innerHTML = `<h3 class="text-lg font-semibold text-emerald-700 mb-2">${kat.tajuk}</h3>${senaraiPermainan}`;
+    bekas.appendChild(div);
+  });
+}
+
+window.onload = function () {
+  paparKadBelajar();
+  paparKadPermainan();
+};
+
   </script>
 </body>
 </html>
