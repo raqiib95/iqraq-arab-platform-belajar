@@ -37,80 +37,108 @@
     </button>
     <h2 class="text-xl font-bold text-amber-700 mb-4">Bahan Pembelajaran Mengikut Kategori</h2>
     <div class="space-y-8">
-      <!-- Setiap kategori -->
-      <div>
-        <h3 class="font-semibold text-amber-600 mb-2">Kata Sapaan & Perkenalan Diri</h3>
-        <div class="flex space-x-4">
-          <button class="tab-btn" onclick="showTab('sapaan-video')">Video</button>
-          <button class="tab-btn" onclick="showTab('sapaan-nota')">Nota</button>
-        </div>
-        <div id="sapaan-video" class="hidden mt-2">
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/samplevideo1" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div id="sapaan-nota" class="hidden mt-2">
-          <iframe width="100%" height="500" src="https://www.canva.com/design/sample1/embed" frameborder="0"></iframe>
-        </div>
+      <!-- Kategori disusun semula -->
+      <!-- Setiap kategori mengandungi tab Video dan Nota -->
+      
+    <div>
+      <h3 class="font-semibold text-amber-600 mb-2">Kata Sapaan & Perkenalan Diri</h3>
+      <div class="flex space-x-4 mb-2">
+        <button class="tab-btn" onclick="showTab('kata-sapaan-perkenalan-diri-video', event)">Video</button>
+        <button class="tab-btn" onclick="showTab('kata-sapaan-perkenalan-diri-nota', event)">Nota</button>
       </div>
-      <div>
-        <h3 class="font-semibold text-amber-600 mb-2">Perkataan Bertema</h3>
-        <div class="flex space-x-4">
-          <button class="tab-btn" onclick="showTab('bertema-video')">Video</button>
-          <button class="tab-btn" onclick="showTab('bertema-nota')">Nota</button>
-        </div>
-        <div id="bertema-video" class="hidden mt-2">
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/samplevideo2" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div id="bertema-nota" class="hidden mt-2">
-          <iframe width="100%" height="500" src="https://www.canva.com/design/sample2/embed" frameborder="0"></iframe>
-        </div>
+      <div id="kata-sapaan-perkenalan-diri-video" class="hidden"><iframe width="100%" height="300" src="https://www.youtube.com/embed/VIDEO_ID_0" allowfullscreen></iframe></div>
+      <div id="kata-sapaan-perkenalan-diri-nota" class="hidden"><iframe width="100%" height="300" src="https://www.canva.com/embed/NOTA_ID_0" allowfullscreen></iframe></div>
+    </div>
+    <div>
+      <h3 class="font-semibold text-amber-600 mb-2">Perkataan Bertema</h3>
+      <div class="flex space-x-4 mb-2">
+        <button class="tab-btn" onclick="showTab('perkataan-bertema-video', event)">Video</button>
+        <button class="tab-btn" onclick="showTab('perkataan-bertema-nota', event)">Nota</button>
       </div>
-      <div>
-        <h3 class="font-semibold text-amber-600 mb-2">Nombor & Jam</h3>
-        <div class="flex space-x-4">
-          <button class="tab-btn" onclick="showTab('nombor-video')">Video</button>
-          <button class="tab-btn" onclick="showTab('nombor-nota')">Nota</button>
-        </div>
-        <div id="nombor-video" class="hidden mt-2">
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/samplevideo3" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div id="nombor-nota" class="hidden mt-2">
-          <iframe width="100%" height="500" src="https://www.canva.com/design/sample3/embed" frameborder="0"></iframe>
-        </div>
+      <div id="perkataan-bertema-video" class="hidden"><iframe width="100%" height="300" src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen></iframe></div>
+      <div id="perkataan-bertema-nota" class="hidden"><iframe width="100%" height="300" src="https://www.canva.com/embed/NOTA_ID_1" allowfullscreen></iframe></div>
+    </div>
+    <div>
+      <h3 class="font-semibold text-amber-600 mb-2">Nombor & Jam</h3>
+      <div class="flex space-x-4 mb-2">
+        <button class="tab-btn" onclick="showTab('nombor-jam-video', event)">Video</button>
+        <button class="tab-btn" onclick="showTab('nombor-jam-nota', event)">Nota</button>
       </div>
-      <div>
-        <h3 class="font-semibold text-amber-600 mb-2">Kata Ganti Nama & Kata Kerja</h3>
-        <div class="flex space-x-4">
-          <button class="tab-btn" onclick="showTab('ganti-video')">Video</button>
-          <button class="tab-btn" onclick="showTab('ganti-nota')">Nota</button>
-        </div>
-        <div id="ganti-video" class="hidden mt-2">
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/samplevideo4" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div id="ganti-nota" class="hidden mt-2">
-          <iframe width="100%" height="500" src="https://www.canva.com/design/sample4/embed" frameborder="0"></iframe>
-        </div>
+      <div id="nombor-jam-video" class="hidden"><iframe width="100%" height="300" src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen></iframe></div>
+      <div id="nombor-jam-nota" class="hidden"><iframe width="100%" height="300" src="https://www.canva.com/embed/NOTA_ID_2" allowfullscreen></iframe></div>
+    </div>
+    <div>
+      <h3 class="font-semibold text-amber-600 mb-2">Kata Ganti Nama & Kata Kerja</h3>
+      <div class="flex space-x-4 mb-2">
+        <button class="tab-btn" onclick="showTab('kata-ganti-nama-kata-kerja-video', event)">Video</button>
+        <button class="tab-btn" onclick="showTab('kata-ganti-nama-kata-kerja-nota', event)">Nota</button>
       </div>
-      <div>
-        <h3 class="font-semibold text-amber-600 mb-2">Kata Sendi & Kata Arah</h3>
-        <div class="flex space-x-4">
-          <button class="tab-btn" onclick="showTab('sendi-video')">Video</button>
-          <button class="tab-btn" onclick="showTab('sendi-nota')">Nota</button>
-        </div>
-        <div id="sendi-video" class="hidden mt-2">
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/samplevideo5" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div id="sendi-nota" class="hidden mt-2">
-          <iframe width="100%" height="500" src="https://www.canva.com/design/sample5/embed" frameborder="0"></iframe>
-        </div>
+      <div id="kata-ganti-nama-kata-kerja-video" class="hidden"><iframe width="100%" height="300" src="https://www.youtube.com/embed/VIDEO_ID_3" allowfullscreen></iframe></div>
+      <div id="kata-ganti-nama-kata-kerja-nota" class="hidden"><iframe width="100%" height="300" src="https://www.canva.com/embed/NOTA_ID_3" allowfullscreen></iframe></div>
+    </div>
+    <div>
+      <h3 class="font-semibold text-amber-600 mb-2">Kata Sendi & Kata Arah</h3>
+      <div class="flex space-x-4 mb-2">
+        <button class="tab-btn" onclick="showTab('kata-sendi-kata-arah-video', event)">Video</button>
+        <button class="tab-btn" onclick="showTab('kata-sendi-kata-arah-nota', event)">Nota</button>
       </div>
+      <div id="kata-sendi-kata-arah-video" class="hidden"><iframe width="100%" height="300" src="https://www.youtube.com/embed/VIDEO_ID_4" allowfullscreen></iframe></div>
+      <div id="kata-sendi-kata-arah-nota" class="hidden"><iframe width="100%" height="300" src="https://www.canva.com/embed/NOTA_ID_4" allowfullscreen></iframe></div>
+    </div>
     </div>
   </section>
+
+  <!-- Kategori Permainan -->
+  <section id="permainan" class="content-section hidden">
+    <button onclick="navigateTo('welcome')" class="text-sm text-amber-700 mb-4 flex items-center">
+      <i class="ph ph-arrow-left mr-2"></i>Kembali
+    </button>
+    <h2 class="text-xl font-bold text-amber-700 mb-4">Permainan Mengikut Kategori</h2>
+    <div class="space-y-8">
+      
+    <div>
+      <h3 class="font-semibold text-amber-600 mb-2">Kata Sapaan & Perkenalan Diri</h3>
+      <ul class="list-disc list-inside ml-4 space-y-1">
+        <li><a href="games/kata-sapaan-perkenalan-diri-game1.html" target="_blank" class="text-blue-600 underline">Aneka pilihan</a></li><li><a href="games/kata-sapaan-perkenalan-diri-game2.html" target="_blank" class="text-blue-600 underline">Padankan antara set</a></li><li><a href="games/kata-sapaan-perkenalan-diri-game3.html" target="_blank" class="text-blue-600 underline">Gariskan jawapan yang betul</a></li><li><a href="games/kata-sapaan-perkenalan-diri-game4.html" target="_blank" class="text-blue-600 underline">Isi tempat kosong dengan jawapan disediakan</a></li><li><a href="games/kata-sapaan-perkenalan-diri-game5.html" target="_blank" class="text-blue-600 underline">Tanda "rait" atau "pangkah" bagi kenyataan berikut</a></li><li><a href="games/kata-sapaan-perkenalan-diri-game6.html" target="_blank" class="text-blue-600 underline">Bonus</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="font-semibold text-amber-600 mb-2">Perkataan Bertema</h3>
+      <ul class="list-disc list-inside ml-4 space-y-1">
+        <li><a href="games/perkataan-bertema-game1.html" target="_blank" class="text-blue-600 underline">Aneka pilihan</a></li><li><a href="games/perkataan-bertema-game2.html" target="_blank" class="text-blue-600 underline">Padankan antara set</a></li><li><a href="games/perkataan-bertema-game3.html" target="_blank" class="text-blue-600 underline">Gariskan jawapan yang betul</a></li><li><a href="games/perkataan-bertema-game4.html" target="_blank" class="text-blue-600 underline">Isi tempat kosong dengan jawapan disediakan</a></li><li><a href="games/perkataan-bertema-game5.html" target="_blank" class="text-blue-600 underline">Tanda "rait" atau "pangkah" bagi kenyataan berikut</a></li><li><a href="games/perkataan-bertema-game6.html" target="_blank" class="text-blue-600 underline">Bonus</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="font-semibold text-amber-600 mb-2">Nombor & Jam</h3>
+      <ul class="list-disc list-inside ml-4 space-y-1">
+        <li><a href="games/nombor-jam-game1.html" target="_blank" class="text-blue-600 underline">Aneka pilihan</a></li><li><a href="games/nombor-jam-game2.html" target="_blank" class="text-blue-600 underline">Padankan antara set</a></li><li><a href="games/nombor-jam-game3.html" target="_blank" class="text-blue-600 underline">Gariskan jawapan yang betul</a></li><li><a href="games/nombor-jam-game4.html" target="_blank" class="text-blue-600 underline">Isi tempat kosong dengan jawapan disediakan</a></li><li><a href="games/nombor-jam-game5.html" target="_blank" class="text-blue-600 underline">Tanda "rait" atau "pangkah" bagi kenyataan berikut</a></li><li><a href="games/nombor-jam-game6.html" target="_blank" class="text-blue-600 underline">Bonus</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="font-semibold text-amber-600 mb-2">Kata Ganti Nama & Kata Kerja</h3>
+      <ul class="list-disc list-inside ml-4 space-y-1">
+        <li><a href="games/kata-ganti-nama-kata-kerja-game1.html" target="_blank" class="text-blue-600 underline">Aneka pilihan</a></li><li><a href="games/kata-ganti-nama-kata-kerja-game2.html" target="_blank" class="text-blue-600 underline">Padankan antara set</a></li><li><a href="games/kata-ganti-nama-kata-kerja-game3.html" target="_blank" class="text-blue-600 underline">Gariskan jawapan yang betul</a></li><li><a href="games/kata-ganti-nama-kata-kerja-game4.html" target="_blank" class="text-blue-600 underline">Isi tempat kosong dengan jawapan disediakan</a></li><li><a href="games/kata-ganti-nama-kata-kerja-game5.html" target="_blank" class="text-blue-600 underline">Tanda "rait" atau "pangkah" bagi kenyataan berikut</a></li><li><a href="games/kata-ganti-nama-kata-kerja-game6.html" target="_blank" class="text-blue-600 underline">Bonus</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="font-semibold text-amber-600 mb-2">Kata Sendi & Kata Arah</h3>
+      <ul class="list-disc list-inside ml-4 space-y-1">
+        <li><a href="games/kata-sendi-kata-arah-game1.html" target="_blank" class="text-blue-600 underline">Aneka pilihan</a></li><li><a href="games/kata-sendi-kata-arah-game2.html" target="_blank" class="text-blue-600 underline">Padankan antara set</a></li><li><a href="games/kata-sendi-kata-arah-game3.html" target="_blank" class="text-blue-600 underline">Gariskan jawapan yang betul</a></li><li><a href="games/kata-sendi-kata-arah-game4.html" target="_blank" class="text-blue-600 underline">Isi tempat kosong dengan jawapan disediakan</a></li><li><a href="games/kata-sendi-kata-arah-game5.html" target="_blank" class="text-blue-600 underline">Tanda "rait" atau "pangkah" bagi kenyataan berikut</a></li><li><a href="games/kata-sendi-kata-arah-game6.html" target="_blank" class="text-blue-600 underline">Bonus</a></li>
+      </ul>
+    </div>
+    </div>
+  </section>
+
   <script>
-    function showTab(tabId) {
+    function showTab(tabId, event) {
       document.querySelectorAll('[id$="-video"], [id$="-nota"]').forEach(el => el.classList.add('hidden'));
       document.getElementById(tabId).classList.remove('hidden');
       document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
       event.target.classList.add('active');
+    }
+    function navigateTo(sectionId) {
+      document.querySelectorAll('.content-section').forEach(sec => sec.classList.add('hidden'));
+      document.getElementById(sectionId).classList.remove('hidden');
     }
   </script>
 </body>
